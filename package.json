@@ -7,7 +7,8 @@
     "test": "react-app-rewired test --colors",
     "coverage": "react-app-rewired test --coverage",
     "precommit": "lint-staged",
-    "lint": "eslint . --ext .tsx"
+    "lint": "eslint . --ext .tsx",
+    "prettier-format": "prettier --config .prettierrc src/**/*.tsx --write"
   },
   "lint-staged": {
     "src/{**/*,*}/*.{ts,tsx}": [
@@ -51,6 +52,7 @@
     "cross-env": "^7.0.3",
     "crypto-browserify": "^3.12.0",
     "lint-staged": "^11.2.6",
+    "prettier": "^2.5.1",
     "process": "^0.11.10",
     "react-app-rewired": "^2.1.11",
     "react-scripts": "5.0.0",

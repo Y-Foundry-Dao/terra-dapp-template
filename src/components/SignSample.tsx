@@ -7,7 +7,7 @@ import {
   TxFailed,
   TxUnspecifiedError,
   useConnectedWallet,
-  UserDenied,
+  UserDenied
 } from '@terra-money/wallet-provider';
 import { useCallback, useState } from 'react';
 
@@ -39,9 +39,9 @@ export function SignSample() {
         fee: new Fee(1000000, '200000uusd'),
         msgs: [
           new MsgSend(connectedWallet.walletAddress, TEST_TO_ADDRESS, {
-            uusd: 1000000,
-          }),
-        ],
+            uusd: 1000000
+          })
+        ]
       })
       .then((nextSignResult: SignResult) => {
         setSignResult(nextSignResult);
@@ -70,7 +70,7 @@ export function SignSample() {
         } else {
           setTxError(
             'Unknown Error: ' +
-              (error instanceof Error ? error.message : String(error)),
+              (error instanceof Error ? error.message : String(error))
           );
         }
       });

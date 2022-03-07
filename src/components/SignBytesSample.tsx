@@ -4,7 +4,7 @@ import {
   Timeout,
   useConnectedWallet,
   UserDenied,
-  verifyBytes,
+  verifyBytes
 } from '@terra-money/wallet-provider';
 import { useCallback, useState } from 'react';
 
@@ -48,7 +48,7 @@ export function SignBytesSample() {
         } else {
           setTxError(
             'Unknown Error: ' +
-              (error instanceof Error ? error.message : String(error)),
+              (error instanceof Error ? error.message : String(error))
           );
         }
       });

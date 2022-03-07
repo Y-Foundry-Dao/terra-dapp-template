@@ -27,6 +27,6 @@ getChainOptions().then((chainOptions) => {
     <WalletProvider {...chainOptions}>
       <App />
     </WalletProvider>,
-    document.getElementById('root'),
+    document.getElementById('root')
   );
 });

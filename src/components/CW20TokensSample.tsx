@@ -20,17 +20,17 @@ export function CW20TokensSample() {
 
 const ANC = {
   'columnbus-5': 'terra14z56l0fp2lsf86zy3hty2z47ezkhnthtr9yq76',
-  'bombay-12': 'terra1747mad58h0w4y589y3sk84r5efqdev9q4r02pc',
+  'bombay-12': 'terra1747mad58h0w4y589y3sk84r5efqdev9q4r02pc'
 };
 
 const BLUNA = {
   'columnbus-5': 'terra1kc87mu460fwkqte29rquh4hc20m54fxwtsx7gp',
-  'bombay-12': 'terra1u0t35drzyy0mujj8rkdyzhe264uls4ug3wdp3x',
+  'bombay-12': 'terra1u0t35drzyy0mujj8rkdyzhe264uls4ug3wdp3x'
 };
 
 const BETH = {
   'columnbus-5': 'terra1dzhzukyezv0etz22ud940z7adyv7xgcjkahuun',
-  'bombay-12': 'terra19mkj9nec6e3y5754tlnuz4vem7lzh4n0lc2s3l',
+  'bombay-12': 'terra19mkj9nec6e3y5754tlnuz4vem7lzh4n0lc2s3l'
 };
 
 function Component() {
@@ -53,13 +53,13 @@ function Component() {
     hasCW20Tokens(chainID, ANC[chainID], BLUNA[chainID], BETH[chainID]).then(
       (result) => {
         setCW20TokensExists(result);
-      },
+      }
     );
   }, [chainID, hasCW20Tokens]);
 
   const add = useCallback(() => {
     addCW20Tokens(chainID, ANC[chainID], BLUNA[chainID], BETH[chainID]).then(
-      setCW20TokensExists,
+      setCW20TokensExists
     );
   }, [addCW20Tokens, chainID]);
 
