@@ -6,7 +6,8 @@
     "start": "react-app-rewired start",
     "test": "react-app-rewired test --colors",
     "coverage": "react-app-rewired test --coverage",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "lint": "eslint . --ext .tsx"
   },
   "lint-staged": {
     "src/{**/*,*}/*.{ts,tsx}": [
