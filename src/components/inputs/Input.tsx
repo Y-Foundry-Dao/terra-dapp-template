@@ -12,9 +12,11 @@ function input() {
         type="text"
         onChange={(event) => setName(event.currentTarget.value)}
       />
-      <button onClick={() => setDisplayMessage(true)}>Submit</button>
+      <button id="submitName" onClick={() => setDisplayMessage(true)}>
+        Submit
+      </button>
 
-      {displayMessage && <p>{`Hello, ${name}!`}</p>}
+      {displayMessage && <p id="displayText">{`Hello, ${name}!`}</p>}
     </div>
   );
 }
