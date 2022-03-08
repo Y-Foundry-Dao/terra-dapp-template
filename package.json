@@ -14,7 +14,7 @@
     "prepare": "husky install"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": "eslint --cache --fix"
+    "*.{js,jsx,ts,tsx}": "yarn prettier-format && yarn lint:fix"
   },
   "jest": {
     "collectCoverageFrom": [
