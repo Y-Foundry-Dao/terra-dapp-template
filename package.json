@@ -8,7 +8,7 @@
     "coverage": "react-app-rewired test --coverage",
     "precommit": "lint-staged",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "lint:fix": "npm run lint -- --fix",
+    "lint:fix": "yarn lint -- --fix",
     "prettier-format": "prettier --config .prettierrc src/**/*.tsx --write",
     "e2etest": "playwright test",
     "prepare": "husky install"
