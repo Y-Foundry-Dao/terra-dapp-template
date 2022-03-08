@@ -6,6 +6,7 @@
 // import { SignBytesSample } from 'components/SignBytesSample';
 // import { SignSample } from 'components/SignSample';
 // import { TxSample } from 'components/TxSample';
+import Input from 'components/inputs/Input';
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
       <CW20TokensSample />
       <NetworkSample /> */}
       <p>Hello World</p>
+      <Input />
     </main>
   );
 }
