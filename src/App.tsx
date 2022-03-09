@@ -8,6 +8,7 @@
 // import { TxSample } from 'components/TxSample';
 import Input from 'components/inputs/Input';
 
+const two = 2;
 export default function App() {
   return (
     <main>
