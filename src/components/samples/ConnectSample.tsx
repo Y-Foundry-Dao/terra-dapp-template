@@ -11,7 +11,7 @@ export function ConnectSample() {
     supportFeatures,
     connect,
     install,
-    disconnect,
+    disconnect
   } = useWallet();
 
   return (
@@ -26,10 +26,10 @@ export function ConnectSample() {
               wallets,
               supportFeatures: Array.from(supportFeatures),
               availableConnectTypes,
-              availableInstallTypes,
+              availableInstallTypes
             },
             null,
-            2,
+            2
           )}
         </pre>
       </section>
@@ -67,7 +67,7 @@ export function ConnectSample() {
                   />
                   {name} [{identifier}]
                 </button>
-              ),
+              )
             )}
           </>
         )}

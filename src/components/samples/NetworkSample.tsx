@@ -21,7 +21,7 @@ export function NetworkSample() {
 const TEST_NETWORK = {
   name: 'test-network',
   chainID: 'bombay-12',
-  lcd: 'https://lcd.terra.dev',
+  lcd: 'https://lcd.terra.dev'
 };
 
 function Component() {
@@ -37,13 +37,13 @@ function Component() {
 
   useEffect(() => {
     hasNetwork(TEST_NETWORK).then((result) =>
-      setNetworkExists(result ? 'exists' : 'not exists'),
+      setNetworkExists(result ? 'exists' : 'not exists')
     );
   }, [hasNetwork]);
 
   const add = useCallback(() => {
     addNetwork(TEST_NETWORK).then((result) =>
-      setNetworkExists(result ? 'exists' : 'not exists'),
+      setNetworkExists(result ? 'exists' : 'not exists')
     );
   }, [addNetwork]);
 

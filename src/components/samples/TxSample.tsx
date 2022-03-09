@@ -1,26 +1,24 @@
-import { Fee, MsgSend, SyncTxBroadcastResult } from '@terra-money/terra.js';
+import { Fee, MsgSend } from '@terra-money/terra.js';
 import {
-  createLCDClient,
   CreateTxFailed,
-  SignResult,
   Timeout,
   TxFailed,
+  TxResult,
   TxUnspecifiedError,
   useConnectedWallet,
-  UserDenied,
+  UserDenied
 } from '@terra-money/wallet-provider';
 import { useCallback, useState } from 'react';
 
 const TEST_TO_ADDRESS = 'terra12hnhh5vtyg5juqnzm43970nh4fw42pt27nw9g9';
 
-export function SignSample() {
-  const [signResult, setSignResult] = useState<SignResult | null>(null);
-  const [txResult, setTxResult] = useState<SyncTxBroadcastResult | null>(null);
+export function TxSample() {
+  const [txResult, setTxResult] = useState<TxResult | null>(null);
   const [txError, setTxError] = useState<string | null>(null);
 
   const connectedWallet = useConnectedWallet();
 
-  const send = useCallback(() => {
+  const proceed = useCallback(() => {
     if (!connectedWallet) {
       return;
     }
@@ -30,30 +28,20 @@ export function SignSample() {
       return;
     }
 
-    setSignResult(null);
     setTxResult(null);
     setTxError(null);
 
     connectedWallet
-      .sign({
+      .post({
         fee: new Fee(1000000, '200000uusd'),
         msgs: [
           new MsgSend(connectedWallet.walletAddress, TEST_TO_ADDRESS, {
-            uusd: 1000000,
-          }),
-        ],
+            uusd: 1000000
+          })
+        ]
       })
-      .then((nextSignResult: SignResult) => {
-        setSignResult(nextSignResult);
-
-        // broadcast
-        const tx = nextSignResult.result;
-
-        const lcd = createLCDClient({ network: connectedWallet.network });
-
-        return lcd.tx.broadcastSync(tx);
-      })
-      .then((nextTxResult: SyncTxBroadcastResult) => {
+      .then((nextTxResult: TxResult) => {
+        console.log(nextTxResult);
         setTxResult(nextTxResult);
       })
       .catch((error: unknown) => {
@@ -70,7 +58,7 @@ export function SignSample() {
         } else {
           setTxError(
             'Unknown Error: ' +
-              (error instanceof Error ? error.message : String(error)),
+              (error instanceof Error ? error.message : String(error))
           );
         }
       });
@@ -78,38 +66,35 @@ export function SignSample() {
 
   return (
     <div>
-      <h1>Sign Sample</h1>
+      <h1>Tx Sample</h1>
 
-      {connectedWallet?.availableSign &&
-        !signResult &&
-        !txResult &&
-        !txError && (
-          <button onClick={() => send()}>Send 1USD to {TEST_TO_ADDRESS}</button>
-        )}
-
-      {signResult && <pre>{JSON.stringify(signResult, null, 2)}</pre>}
+      {connectedWallet?.availablePost && !txResult && !txError && (
+        <button onClick={proceed}>Send 1USD to {TEST_TO_ADDRESS}</button>
+      )}
 
       {txResult && (
         <>
           <pre>{JSON.stringify(txResult, null, 2)}</pre>
+
           {connectedWallet && txResult && (
-            <a
-              href={`https://finder.terra.money/${connectedWallet.network.chainID}/tx/${txResult.txhash}`}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Open Tx Result in Terra Finder
-            </a>
+            <div>
+              <a
+                href={`https://finder.terra.money/${connectedWallet.network.chainID}/tx/${txResult.result.txhash}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Open Tx Result in Terra Finder
+              </a>
+            </div>
           )}
         </>
       )}
 
       {txError && <pre>{txError}</pre>}
 
-      {(!!signResult || !!txResult || !!txError) && (
+      {(!!txResult || !!txError) && (
         <button
           onClick={() => {
-            setSignResult(null);
             setTxResult(null);
             setTxError(null);
           }}
@@ -120,8 +105,8 @@ export function SignSample() {
 
       {!connectedWallet && <p>Wallet not connected!</p>}
 
-      {connectedWallet && !connectedWallet.availableSign && (
-        <p>This connection does not support sign()</p>
+      {connectedWallet && !connectedWallet.availablePost && (
+        <p>This connection does not support post()</p>
       )}
     </div>
   );
