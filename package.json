@@ -11,7 +11,7 @@
     "lint:fix": "yarn lint --fix",
     "prettier-format": "prettier --config .prettierrc src/**/*.tsx --write",
     "e2etest": "playwright test",
-    "prepare": "husky install"
+    "prepare": "husky install && cp -a .husky/. .git/hooks/"
   },
   "lint-staged": {
     "src/*.{js,jsx,ts,tsx}": [
