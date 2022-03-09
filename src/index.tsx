@@ -1,12 +1,17 @@
+import ReactDOM from 'react-dom';
+
 import App from './App';
 import { getChainOptions, WalletProvider } from '@terra-money/wallet-provider';
-
-import ReactDOM from 'react-dom';
+import GlobalCss from './styles/global.css';
+import ThemeComponent from './styles/ThemeComponent';
 
 getChainOptions().then((chainOptions) => {
   ReactDOM.render(
     <WalletProvider {...chainOptions}>
-      <App />
+      <ThemeComponent>
+        <GlobalCss />
+        <App />
+      </ThemeComponent>
     </WalletProvider>,
     document.getElementById('root')
   );
