@@ -14,7 +14,10 @@
     "prepare": "husky install"
   },
   "lint-staged": {
-    "src/*.{js,jsx,ts,tsx}": "yarn lint:fix"
+    "src/*.{js,jsx,ts,tsx}": [
+      "yarn lint:fix",
+      "yarn prettier-format"
+    ]
   },
   "jest": {
     "collectCoverageFrom": [
