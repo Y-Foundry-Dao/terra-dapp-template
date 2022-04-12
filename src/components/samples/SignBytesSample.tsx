@@ -4,7 +4,7 @@ import {
   Timeout,
   useConnectedWallet,
   UserDenied,
-  verifyBytes
+  verifyBytes,
 } from '@terra-money/wallet-provider';
 import { useCallback, useState } from 'react';
 
