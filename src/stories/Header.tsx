@@ -1,7 +1,5 @@
-import React from 'react';
-
-import { Button } from './Button';
-import './header.css';
+import { Button } from 'stories/Button';
+import 'stories/header.css';
 
 type User = {
   name: string;
@@ -18,7 +16,7 @@ export const Header = ({
   user,
   onLogin,
   onLogout,
-  onCreateAccount
+  onCreateAccount,
 }: HeaderProps) => (
   <header>
     <div className="wrapper">
