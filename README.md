@@ -4,6 +4,8 @@ The Terra dApp Template is a starter template built off the [wallet-provider](ht
 
 ## Installation
 
+_Please ensure you are running node 14 or higher_
+
 Use the package manager [yarn](https://yarnpkg.com/) to install the dependencies.
 
 ```bash
@@ -14,27 +16,37 @@ yarn install
 
 #### localhost:3000
 
-```typescript
+```bash
 yarn start
 ```
 
 #### storybook design system
 
-```typescript
+```bash
 yarn storybook
 ```
 
 #### unit/integration tests
 
-```typescript
+```bash
 yarn test
 ```
 
 #### end to end tests
 
-```typescript
+```bash
 yarn e2etest
 ```
+
+## Guides
+
+[storybook](docs/storybook.md)
+
+[unit and integration tests](docs/unit_integration_testing.md)
+
+[end to end tests](docs/end_to_end_testing.md)
+
+[styling](docs/styling.md)
 
 # Packages
 
