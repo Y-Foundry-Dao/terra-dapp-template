@@ -1,4 +1,4 @@
-import Input from './Input';
+import Input from 'components/inputs/Input';
 import { render, fireEvent } from '@testing-library/react';
 
 it('should display "Hello, Bob!" after entering name', () => {
