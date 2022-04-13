@@ -4,11 +4,11 @@ This template sets up end to end testing using [playwright](https://playwright.d
 
 ## File Structure
 
-End to end tests are located in `src/tests` because they are usually not tied to a specific component, but to your application as a whole.
+End to end tests are located in the directory `tests` because they are usually not tied to a specific component, but to your application as a whole.
 
 - `playwright.config.ts` - this is the file which sets up your configuration for the playwright test runner based on the instructions outlined [here](https://playwright.dev/docs/intro#configuration-file)
 
-## Resources
+## End to End Testing Resources
 
 Here are some resources for using playwright!
 

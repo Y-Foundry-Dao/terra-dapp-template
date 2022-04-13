@@ -11,6 +11,30 @@ We understand not everyone will want to learn the extra overhead of storybook. W
 
 If you are interested in learning more about storybook you can start with the introductory guide [here](https://storybook.js.org/docs/react/get-started/whats-a-story)
 
+## Preview vs Manager
+
+It is worth noting that the storybook UI is composed of 2 parts. The preview and the manager. The manager is the UI for storybook itself, this includes the sidebar listing all stories, the toolbars, and the addon section. The preview is where you can view docs, and where your story actually renders. The area where you can choose between viewing the canvas and docs is the preview. Together the preview and manager make up the entire storybook UI
+
+## File Structure
+
+`.storybook` directory is the directory that contains all the configuration files for storybook.
+
+- `main.js` - This is where you can configure the entire storybook server. This template leaves `main.js` very minimal with the intention that any developer can tweak it as they see fit using the [Official Docs](https://storybook.js.org/docs/react/configure/overview) to figure out what parameters they might need.
+
+- `viewports.ts` - This just exports our `INITIAL_VIEWPORTS` variable from the viewport addon so that we can use it in both `preview.js` and `Canvas.js`
+
+- `preview.js` - The preview is what controls the space where your stories are rendered. More information can be found in the docs [here](https://storybook.js.org/docs/react/configure/overview#configure-story-rendering)
+
+- `manager.js` - The manager is what controls the UI of storybook itself. We pass the Storybook Theme into it to set our theme. You can find configuration options in the storybook [official docs](https://storybook.js.org/docs/react/configure/features-and-behavior)
+
+- `StorybookTheme.ts` - this file contains the theme for storybooks UI to use. Read more about adding a theme to your storybook [here](https://storybook.js.org/docs/react/configure/theming)
+
+- `Canvas.js` - With help from a storybook team member we wrote a custom Canvas component that will allow you to show mobile only components in your storybook docs if you are writing your docs using [MDX](https://storybook.js.org/docs/react/writing-docs/mdx)
+
+Read more on MDX:
+
+- [Docs on GitHub](https://github.com/storybookjs/storybook/blob/next/addons/docs/docs/mdx.md)
+
 ## Storybook Testing
 
 Storybook allows us to write less Unit and Integration tests as we can replace them with interaction tests directly within storybook.
@@ -55,8 +79,8 @@ Feel free to remove storybook if you decide it isn't for you.
 
 This is a list of links I consistently use to help me with storybook development.
 
+- [Hidden docs about docs](https://github.com/storybookjs/storybook/tree/next/addons/docs/docs)
 - [Repo for interaction testing addon](https://github.com/storybookjs/storybook/blob/next/addons/interactions/README.md)
-
 - [Documenting with mdx article](https://levelup.gitconnected.com/documenting-design-systems-with-storybook-docs-e54b2fa5203)
 - [Official docs about writing docs](https://storybook.js.org/docs/react/writing-docs/docs-page)
 - [Doc Blocks in GitHub](https://github.com/storybookjs/storybook/tree/main/addons/docs/src/blocks)
