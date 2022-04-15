@@ -14,7 +14,7 @@ We have included 4 files for styled components in the `src/styles` directory
 
 - `ThemeType.tsx` - This exports our type of our theme to use in typescript
 
-## Resources
+## Styling Resources
 
 - [Creating global style component](https://scalablecss.com/styled-components-global-styles/)
 
